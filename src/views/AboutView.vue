@@ -1,15 +1,16 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div>
+<VCard>
+  <VCardTitle>
+    Acerca de esta tienda
+  </VCardTitle>
+  <VCardText>
+    <p>Esta tienda esta basada en la ayuda mutua </p>
+    <p>Si necesitas ayuda contactanos</p>
+    <p>the_pivotsk8@hotail.com</p>
+  </VCardText>
+</VCard>
   </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+
