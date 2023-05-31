@@ -19,25 +19,27 @@ const itemCount =()=>{
                 color="grey-darken-1"
                 size="32"
               ></v-avatar>
-              <RouterLink to="/">
-                <VBtn variant="text">
+
+              <RouterLink custom v-slot="{navigate}" to="/">
+                <VBtn prepend-icon="mdi:mdi-home" variant="text" @click="navigate" :active="$route.name === 'home'">
                   Home
                  </VBtn>
               </RouterLink>
               
-              <RouterLink to="/cart">
+              <RouterLink custom v-slot="{navigate}"
+               to="/cart">
                 <VBadge 
                 :content="itemCount()" 
                 :model-value="itemCount()> 0" 
                 color="orange-lighten-2">
-                  <VBtn variant="text">
+                  <VBtn prepend-icon="mdi:mdi-cart-outline" variant="text" @click="navigate" :active="$route.name === 'cart'" >
                     Cart
                    </VBtn>
                 </VBadge>
               </RouterLink>
       
-              <RouterLink to="/about">
-                <VBtn variant="text">
+              <RouterLink custom v-slot="{navigate}" to="/about">
+                <VBtn prepend-icon="mdi:mdi-information" variant="text" @click="navigate" :active="$route.name === 'about'">
                 About
                 </VBtn>
               </RouterLink>
