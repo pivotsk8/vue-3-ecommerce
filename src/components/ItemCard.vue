@@ -16,7 +16,7 @@ products: {
 
 //methodes
 function addProduct(){
-cartStore.addProduct(props.products.id)
+cartStore.addProduct(props.products)
 }
 </script>
 

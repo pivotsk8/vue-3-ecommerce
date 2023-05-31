@@ -37,25 +37,25 @@ const deleteProduct = (productId: number) => {
       
       <VCardText>
         <VList v-if="details.length > 0">
-          <VListItem v-for="detail in details " :key="key(detail.productId)" :value="detail.productId">
+          <VListItem v-for="detail in details " :key="key(detail.product.id)" :value="detail.product.id">
             <VListItemTitle>
-              {{detail.productId}}  
+              {{detail.product.name}}  
             <VBtn
             class="ml-2"
             size="x-small"
             icon="mdi:mdi-minus" 
-              @click="decrementAmount(detail.productId)"/>
+              @click="decrementAmount(detail.product.id)"/>
               Qty: {{detail.amount }}
             <VBtn 
             size="x-small"
             icon="mdi:mdi-plus"
-            @click="incrementAmount(detail.productId)"/>
+            @click="incrementAmount(detail.product.id)"/>
      
             <VBtn 
             class="ml-2"
             size="x-small"
             icon="mdi:mdi-delete"
-            @click="deleteProduct(detail.productId)"/>
+            @click="deleteProduct(detail.product.id)"/>
             </VListItemTitle>
           </VListItem>
         </VList>

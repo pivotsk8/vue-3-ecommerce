@@ -1,25 +1,24 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import type {CartDetail} from '../model/tipos'
+import type {CartDetail, Products} from '../model/tipos'
 
 
 export const useCartStore = defineStore('cart', () => {
   const details = ref <Array<CartDetail>>([])
 
 // action
-  const addProduct = (productId:number) => {
-    const detailFound = details.value.find(detail => detail.productId === productId)
+  const addProduct = (product: Products) => {
+    const detailFound = details.value.find(detail => detail.product.id === product.id)
     detailFound 
     ? detailFound.amount++
     :details.value.push({
-      name:"",
-      productId,
+      product,
       amount: 1
     })
   }
 
   const deleteProduct = (productId: number)=>{
-   const index =  details.value.findIndex(detail => detail.productId === productId)
+   const index =  details.value.findIndex(detail => detail.product.id === productId)
    details.value.splice(index, 1)
     
   }
@@ -33,12 +32,12 @@ export const useCartStore = defineStore('cart', () => {
   }
   
   const increment = (productId:number) => {
-  const detailFound = details.value.find(detail => detail.productId === productId)
+  const detailFound = details.value.find(detail => detail.product.id === productId)
   detailFound ? detailFound.amount++ : null
 }
 
 const decrement = (productId:number) => {
-  const detailFound = details.value.find(detail => detail.productId === productId)
+  const detailFound = details.value.find(detail => detail.product.id === productId)
   detailFound ? detailFound.amount-- : null
   detailFound?.amount === 0 ? deleteProduct(productId) : null
 
