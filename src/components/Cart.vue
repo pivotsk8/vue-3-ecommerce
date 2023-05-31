@@ -1,13 +1,12 @@
 <script  setup lang="ts">
-import {ref,type PropType} from "vue"
-import type{ CartDetail } from '../model/tipos';
+import  { ref} from "vue"
+import { useCartStore } from '@/stores/cart';
 
-defineProps({
-  details:{
-    type: Object as PropType<Array<CartDetail>>,
-    required: true
-  }
-})
+// stores
+const carStore = useCartStore()
+
+//data
+const details = ref (carStore.details)
 
 const key = () => {
   let key = 1
@@ -19,7 +18,7 @@ const key = () => {
   <div>
     <VCard class="mt-4">
       <VCardTitle>
-        Producto agregados al carrito
+        Productos agregados al carrito
       </VCardTitle>
       
       <VCardText>

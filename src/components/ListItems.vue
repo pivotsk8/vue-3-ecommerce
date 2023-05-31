@@ -1,7 +1,7 @@
 <script  setup lang="ts">
 import ItemCard from './ItemCard.vue'
 import Cart from './Cart.vue'
-import type { Products,CartDetail } from '../model/tipos';
+import type { Products} from '../model/tipos';
 import { ref} from 'vue'
 
 const products = ref <Array<Products>>([
@@ -20,19 +20,26 @@ const products = ref <Array<Products>>([
   name: 'mesa',
   price: 500,
   },
+  {
+  id: 4,
+  name: 'silla',
+  price: 150,
+  },
+  {
+  id: 5,
+  name: 'butaco',
+  price: 200,
+  },
+  {
+  id: 6,
+  name: 'mesa',
+  price: 500,
+  },
 ])
-const details = ref <Array<CartDetail>>([])
 
 const key = (id:any) => id++
 
-const addProduct = (productId:number) => {
-  const detailFound = details.value.find(detail => detail.productId === productId)
-  detailFound 
-  ? detailFound.amount++
-  :details.value.push({
-  productId,
-  amount: 1
-})
+const addProduct = (productId: number) => {
 }
 </script>
 
@@ -45,7 +52,5 @@ const addProduct = (productId:number) => {
           @add-product="addProduct(product.id)"/>
         </VCol>
       </VRow>
-  
-      <Cart :details="details"/>
-  </div>
+     </div>
 </template>

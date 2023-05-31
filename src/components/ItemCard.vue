@@ -1,19 +1,22 @@
 <script  setup lang="ts">
 import type {Products} from "../model/tipos"
 import { ref, type PropType } from 'vue'
+import { useCartStore } from "@/stores/cart";
 
-const emit = defineEmits<{
-  (e: "AddProduct", id:number):void
-}>()
+//Stores
+const cartStore = useCartStore()
 
-defineProps({
+//Props
+const props = defineProps({
 products: {
   type: Object as PropType<Products>,
     required: true
 }
 })
-function addProduct(productId: number){
-  emit("AddProduct", productId)
+
+//methodes
+function addProduct(){
+cartStore.addProduct(props.products.id)
 }
 </script>
 
@@ -41,9 +44,9 @@ function addProduct(productId: number){
 
       <VCardActions>
          <VBtn 
-         @click="addProduct(products.id)" 
+         @click="addProduct" 
          color="orange-lighten-2">
-         agrgar al carrito
+         Agregar al carrito
         </VBtn>
       </VCardActions>
     </VCard>
