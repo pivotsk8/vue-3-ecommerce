@@ -1,6 +1,6 @@
 <script  setup lang="ts">
 import type {Products} from "../model/tipos"
-import { ref, type PropType } from 'vue'
+import {type PropType } from 'vue'
 import { useCartStore } from "@/stores/cart";
 
 //Stores

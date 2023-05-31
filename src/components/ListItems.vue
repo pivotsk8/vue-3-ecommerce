@@ -1,6 +1,5 @@
 <script  setup lang="ts">
 import ItemCard from './ItemCard.vue'
-import Cart from './Cart.vue'
 import type { Products} from '../model/tipos';
 import { ref} from 'vue'
 
@@ -39,8 +38,7 @@ const products = ref <Array<Products>>([
 
 const key = (id:any) => id++
 
-const addProduct = (productId: number) => {
-}
+
 </script>
 
 <template>  
@@ -48,8 +46,7 @@ const addProduct = (productId: number) => {
     <VRow>
         <VCol v-for="product in products" :key="key(product.id)" cols="4">
           <ItemCard 
-          :products="product" 
-          @add-product="addProduct(product.id)"/>
+          :products="product" />
         </VCol>
       </VRow>
      </div>
