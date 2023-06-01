@@ -21,7 +21,10 @@ const itemCount =()=>{
               </VAvatar>
 
               <RouterLink custom v-slot="{navigate}" to="/">
-                <VBtn prepend-icon="mdi:mdi-home" variant="text" @click="navigate" :active="$route.name === 'home'">
+                <VBtn 
+                prepend-icon="mdi:mdi-home" 
+                variant="text" @click="navigate" 
+                :active="$route.name === 'home'||$route.name ==='category'">
                   Home
                  </VBtn>
               </RouterLink>

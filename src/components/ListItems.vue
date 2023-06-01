@@ -1,7 +1,8 @@
 <script  setup lang="ts">
 import ItemCard from '@/components/ItemCard.vue'
-
 import type {Products} from "@/model/tipos"
+
+
 
 const props = defineProps({
   filteredProducts: {

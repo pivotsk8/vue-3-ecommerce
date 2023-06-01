@@ -28,13 +28,30 @@ params: {categoryId}
 }
 
 
+
 </script>
 
 <template>
     <div>
         <v-sheet rounded="lg">
             <VList rounded="lg">
+
+              <VListSubheader>
+                CATEGORIAS
+              </VListSubheader>
+
+              <VListItem 
+              link
+              @click="selectCategory(0)"
+              :active="$route.params.categoryId === '0' || $route.name === 'home' "
+              >
+                <VListItemTitle>
+                  Todas
+                </VListItemTitle>
+              </VListItem>
+            
               <VListItem
+              :active="Number($route.params.categoryId) === category.categoryId || $route.name === 'categoty'"
                 v-for=" category in categories"
                 :key="category.categoryId"
                 link
@@ -47,6 +64,10 @@ params: {categoryId}
       
               <v-divider class="my-2"></v-divider>
       
+              <VListSubheader>
+                FILTROS
+              </VListSubheader>
+
               <VListItem
                 link
                 color="grey-lighten-4"

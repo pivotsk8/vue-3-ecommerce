@@ -9,9 +9,12 @@ const productStore = userProductsStore()
 const {filterProducts} = productStore
 const selectCategory = ref(0)
 
+
+
 const filteredProducts = computed(() => {
   return filterProducts(selectCategory.value);
 });
+
 
 onBeforeRouteUpdate((to, from, next) => {
    const categoryId = Number(to.params.categoryId)
