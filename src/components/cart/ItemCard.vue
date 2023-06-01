@@ -1,10 +1,11 @@
 <script  setup lang="ts">
-import type {Products} from "../model/tipos"
+import type {Products} from "@/model/tipos"
 import {type PropType } from 'vue'
 import { useCartStore } from "@/stores/cart";
 
 //Stores
 const cartStore = useCartStore()
+const {addProduct} = cartStore
 
 //Props
 const props = defineProps({
@@ -15,16 +16,15 @@ products: {
 })
 
 //methodes
-function addProduct(){
-cartStore.addProduct(props.products)
-}
+const img = () => props.products.image ?? "https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+
 </script>
 
 <template>  
   <div>
     <VCard >
       <VImg
-      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      :src="img()"
       height="200px"
       cover
       />
@@ -44,7 +44,7 @@ cartStore.addProduct(props.products)
 
       <VCardActions>
          <VBtn 
-         @click="addProduct" 
+         @click="addProduct(props.products)" 
          color="orange-lighten-2">
          Agregar al carrito
         </VBtn>

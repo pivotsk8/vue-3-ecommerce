@@ -43,12 +43,21 @@ const decrement = (productId:number) => {
 
 }
 
+const totalAmount = () => {
+  let sum = 0;
+  details.value.forEach(element => {
+    sum += element.amount * element.product.price;
+  });
+  return sum
+}
+
   return {
     details, 
     addProduct, 
     itemCount, 
     increment, 
     decrement, 
-    deleteProduct 
+    deleteProduct,
+    totalAmount
   }
 })
