@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useCartStore } from '@/stores/cart';
 import {type PropType } from 'vue'
-import type { CartDetail } from '../model/tipos';
+import type { CartDetail } from '@/model/tipos';
 const carStore = useCartStore()
 const {deleteProduct,increment,decrement} = carStore
 
@@ -36,7 +36,7 @@ const subTotal=()=>{
             size="x-small"
             icon="mdi:mdi-minus" 
             @click="decrement(props.detail.product.id)"/>
-             cantidad: {{props.detail.amount }}
+             {{props.detail.amount }}
            
             <VBtn 
             size="x-small"

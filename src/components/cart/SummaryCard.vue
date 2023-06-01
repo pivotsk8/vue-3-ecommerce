@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useCartStore } from '@/stores/cart';
 
+// store
 const carStore =useCartStore()
 const {totalAmount} = carStore 
 </script>
@@ -10,14 +11,16 @@ const {totalAmount} = carStore
             <VCardTitle>
                Resumen de la compra 
             </VCardTitle>
+
+            <VCardSubtitle>
+                Total a pagar: {{totalAmount()}}
+            </VCardSubtitle>
+
             <VCardText>
-                <p>
-                    Total a pagar: {{totalAmount()}}
-                </p>
+                <VBtn variant="tonal" color="orange-lighten-2">
+                    Realizar pedido
+                </VBtn>
             </VCardText>
-            <VBtn color="success">
-                Realizar pedido
-            </VBtn>
         </VCard>
     </div>
 </template>

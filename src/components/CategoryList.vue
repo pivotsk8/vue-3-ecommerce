@@ -3,11 +3,13 @@ import type {Category} from '@/model/tipos';
 import {ref} from 'vue'
 const categories = ref <Array<Category>>([{
   categoryId: 1,
-  name: 'Tecnologia'
+  name: 'mobilario',
+  description:'Mobilario para tu casa.'
 },
 {
   categoryId: 2,
-  name: 'Jugetes'
+  name: 'accesorios',
+  description:'Accesorios de decoracion.'
 }
 ])
 </script>

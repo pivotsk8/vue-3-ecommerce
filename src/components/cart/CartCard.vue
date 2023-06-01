@@ -2,7 +2,7 @@
 import { storeToRefs } from "pinia";
 import { RouterLink } from "vue-router";
 import { useCartStore } from '@/stores/cart';
-import ShoppingCartItem from '@/components/shoppingCartItem.vue'
+import ShoppingCartItem from '@/components/cart/ShoppingCartItem.vue'
 
 
 
@@ -39,8 +39,10 @@ return key++
             <th class="text-left">
               Subtotal
             </th>
-            <th class="text-left">
-              Eliminar
+            <th>
+              <span class="d-sr-only">
+                Eliminar
+              </span>
             </th>
           </tr>
         </thead>

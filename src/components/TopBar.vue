@@ -14,11 +14,11 @@ const itemCount =()=>{
     <div>
         <VAppBar flat>
             <VContainer class="fill-height d-flex align-center">
-              <v-avatar
+              <VAvatar
                 class="me-10 ms-4"
-                color="grey-darken-1"
-                size="32"
-              ></v-avatar>
+                size="32">
+                <VImg src="/logo.png"/>
+              </VAvatar>
 
               <RouterLink custom v-slot="{navigate}" to="/">
                 <VBtn prepend-icon="mdi:mdi-home" variant="text" @click="navigate" :active="$route.name === 'home'">
