@@ -1,6 +1,12 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import type {Category} from '@/model/tipos';
 import {ref} from 'vue'
+
+//router
+const router = useRouter()
+
+//store
 const categories = ref <Array<Category>>([{
   categoryId: 1,
   name: 'mobilario',
@@ -12,6 +18,16 @@ const categories = ref <Array<Category>>([{
   description:'Accesorios de decoracion.'
 }
 ])
+
+// Methods
+const selectCategory = (categoryId:number) =>{
+router.push({
+name:"category",
+params: {categoryId}
+})
+}
+
+
 </script>
 
 <template>
@@ -22,6 +38,7 @@ const categories = ref <Array<Category>>([{
                 v-for=" category in categories"
                 :key="category.categoryId"
                 link
+                @click="selectCategory(category.categoryId)"
               >
                 <VListItemTitle>
                    {{ category.name }}
@@ -34,7 +51,9 @@ const categories = ref <Array<Category>>([{
                 link
                 color="grey-lighten-4"
               >
-                <VListItemTitle>
+                <VListItemTitle
+                link
+                @click="selectCategory(0)">
                   Refresh
                 </VListItemTitle>
               </VListItem>
