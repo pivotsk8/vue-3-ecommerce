@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import OrderOption from '../components/sideBar/OrderOption.vue';
-import CategoiesOption from '../components/sideBar/categoriesOption.vue';
+import CategoriesOption from '@/components/sideBar/CategoriesOption.vue';
 </script>
 
 <template>
     <div>
         <v-sheet rounded="lg">
             <VList rounded="lg">
-              <CategoiesOption/>
+              <CategoriesOption/>
 
               <v-divider class="my-2"></v-divider>
               
