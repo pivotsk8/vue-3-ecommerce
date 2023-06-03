@@ -1,17 +1,11 @@
 <script  setup lang="ts">
 import ItemCard from '@/components/ItemCard.vue'
-import type {Products} from "@/model/tipos"
+import { userProductsStore } from '@/stores/products';
+import { storeToRefs } from 'pinia';
 
+const produtsStore = userProductsStore()
+const {products} = storeToRefs(produtsStore)
 
-
-const props = defineProps({
-  filteredProducts: {
-    type: Array as () => Products[],
-    required: true
-  },
-
-  
-});
 
 const key = (id:any) => id++
 
@@ -21,7 +15,7 @@ const key = (id:any) => id++
 <template>  
   <div>
     <VRow>
-        <VCol v-for="product in props.filteredProducts" :key="key(product.id)" cols="4">
+        <VCol v-for="product in products" :key="key(product.id)" cols="4">
           <ItemCard 
           :products="product" />
         </VCol>

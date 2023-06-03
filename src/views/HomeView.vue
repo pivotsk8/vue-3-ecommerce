@@ -3,24 +3,20 @@ import ListItems from "@/components/ListItems.vue";
 import CategoryList from '@/components/CategoryList.vue'
 import { onBeforeRouteUpdate} from 'vue-router';
 import { userProductsStore } from "@/stores/products";
-import { computed, ref } from "vue";
+import {onMounted} from 'vue'
 
 const productStore = userProductsStore()
-const {filterProducts} = productStore
-const selectCategory = ref(0)
-
-
-
-const filteredProducts = computed(() => {
-  return filterProducts(selectCategory.value);
-});
-
+const{changeCategory}=productStore
 
 onBeforeRouteUpdate((to, from, next) => {
    const categoryId = Number(to.params.categoryId)
-   selectCategory.value = categoryId
-  next()
-    });
+changeCategory(categoryId)  
+next()
+    })
+
+onMounted(() => {
+  changeCategory(0) 
+})   
 
  
     
@@ -33,7 +29,7 @@ onBeforeRouteUpdate((to, from, next) => {
     </VCol>
 
     <VCol cols="10">
-      <ListItems :filteredProducts="filteredProducts"/>
+      <ListItems />
     </VCol>
   </VRow>
 

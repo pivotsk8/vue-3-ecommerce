@@ -3,6 +3,10 @@ import { useRouter } from 'vue-router';
 import type {Category} from '@/model/tipos';
 import {ref} from 'vue'
 import OrderOption from '../components/sideBar/OrderOption.vue';
+import { userProductsStore } from "@/stores/products";
+
+const productStore = userProductsStore()
+const{changeCategory}=productStore
 
 //router
 const router = useRouter()
@@ -23,8 +27,14 @@ const categories = ref <Array<Category>>([{
 ])
 
 // Methods
-const selectCategory = (categoryId:number) =>{
-router.push({
+const selectCategory = (categoryId:number | null ) =>{
+categoryId === 0 ?(
+  router.push({
+name:"home",
+}), changeCategory(0)
+)
+
+ : router.push({
 name:"category",
 params: {categoryId}
 })
@@ -46,7 +56,7 @@ params: {categoryId}
               <VListItem 
               link
               @click="selectCategory(0)"
-              :active="$route.params.categoryId === '0' || $route.name === 'home' "
+              :active="$route.name === 'home' "
               >
                 <VListItemTitle>
                   Todas
