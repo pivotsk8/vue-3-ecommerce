@@ -3,7 +3,8 @@ import type { Products} from '@/model/tipos';
 import { ref,watch} from 'vue'
 
 export const userProductsStore = defineStore( 'products',()=>{
-    const originalProducts = [ {
+    const originalProducts = [ 
+        {
         id: 1,
         name: 'Silla',
         price: 150,
@@ -44,7 +45,8 @@ export const userProductsStore = defineStore( 'products',()=>{
         price: 500,
         categotyId:1,
         image:"https://mxcity.mx/wp-content/uploads/2018/03/silla.jpg"
-},]
+}
+]
     const filteredProducts = ref <Array<Products>>([])
 
     const order = ref<string>("price")

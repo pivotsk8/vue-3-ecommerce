@@ -1,0 +1,10 @@
+[{
+    "categoryId": 1,
+    "name": "mobilario",
+    "description":"Mobilario para tu casa."
+  },
+  {
+    "categoryId": 2,
+    "name": "accesorios",
+    "description":"Accesorios de decoracion."
+  }]
