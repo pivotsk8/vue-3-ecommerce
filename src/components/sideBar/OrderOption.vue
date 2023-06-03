@@ -10,13 +10,21 @@ const {changeOrder} = productStore
 
 </script>
 <template>
-    <VListSubheader> FILTROS </VListSubheader>
+    <VListSubheader> Ordenar por </VListSubheader>
 
     <VListItem 
     link  @click="changeOrder('price')"
     :active="order ==='price'">
       <VListItemTitle>
-        Por precio
+        Precio (menor a mayor)
+      </VListItemTitle>
+     </VListItem>
+
+    <VListItem 
+    link  @click="changeOrder('priceDesc')"
+    :active="order ==='priceDesc'">
+      <VListItemTitle>
+        Precio (mayor a menor)
       </VListItemTitle>
      </VListItem>
 
@@ -24,7 +32,15 @@ const {changeOrder} = productStore
     link  @click="changeOrder('name')"
     :active="order ==='name'">
       <VListItemTitle>
-        Por nombre
+        Nombre (A-Z)
+      </VListItemTitle>
+     </VListItem>
+
+    <VListItem 
+    link  @click="changeOrder('nameDesc')"
+    :active="order ==='nameDesc'">
+      <VListItemTitle>
+        Nombre (Z-A)
       </VListItemTitle>
     </VListItem>
 </template>

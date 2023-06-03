@@ -63,8 +63,15 @@ export const userProductsStore = defineStore( 'products',()=>{
     
         if (order.value === 'price') {
             updateProducts.sort((a, b) => a.price - b.price);
-        } else if (order.value === 'name') {
+        } 
+        if (order.value === 'priceDesc') {
+            updateProducts.sort((a, b) => b.price - a.price);
+        } 
+        if (order.value === 'name') {
             updateProducts.sort((a, b) => a.name.localeCompare(b.name));
+        }
+        if (order.value === 'nameDesc') {
+            updateProducts.sort((a, b) => b.name.localeCompare(a.name));
         }
     
         filteredProducts.value = updateProducts;

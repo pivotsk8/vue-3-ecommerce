@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ListItems from "@/components/ListItems.vue";
-import CategoryList from '@/components/CategoryList.vue'
+import SideBar from '@/components/SideBar.vue'
 import { onBeforeRouteUpdate} from 'vue-router';
 import { userProductsStore } from "@/stores/products";
 import {onMounted} from 'vue'
@@ -25,7 +25,7 @@ onMounted(() => {
 <template>
   <VRow>
     <VCol cols="2">
-      <CategoryList/>
+      <SideBar/>
     </VCol>
 
     <VCol cols="10">

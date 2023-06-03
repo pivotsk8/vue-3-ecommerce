@@ -16,7 +16,8 @@ export interface CartDetail {
 
 export interface Category {
     categoryId: number;
-    name: string
+    name: string;
     description: string
 }
+
 
