@@ -2,11 +2,14 @@
 import { useRouter } from 'vue-router';
 import type {Category} from '@/model/tipos';
 import {ref} from 'vue'
+import OrderOption from '../components/sideBar/OrderOption.vue';
 
 //router
 const router = useRouter()
 
-//store
+
+
+
 const categories = ref <Array<Category>>([{
   categoryId: 1,
   name: 'mobilario',
@@ -63,21 +66,7 @@ params: {categoryId}
               </VListItem>
       
               <v-divider class="my-2"></v-divider>
-      
-              <VListSubheader>
-                FILTROS
-              </VListSubheader>
-
-              <VListItem
-                link
-                color="grey-lighten-4"
-              >
-                <VListItemTitle
-                link
-                @click="selectCategory(0)">
-                  Refresh
-                </VListItemTitle>
-              </VListItem>
+              <OrderOption/>
             </VList>
           </v-sheet>
     </div>

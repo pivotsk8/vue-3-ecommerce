@@ -48,17 +48,37 @@ export const userProductsStore = defineStore( 'products',()=>{
             },
     ])
 
-//action
-const filterProducts = (categoryId : number) => {
+    const order = ref<string>("price")
 
-    if (!categoryId)
+//action
+const filterProducts = (categoryId : number | 0  , ) => {
+
+    if (categoryId)
     {  
-    return products.value
+       return products.value.filter(products => products.categotyId === categoryId)
     }
-     return products.value.filter(products => products.categotyId === categoryId)
-}
+    if (order.value === ""){
+        return products.value
+    }
+    
+    if (order.value === "price"){
+        return products.value.sort((a,b)=> a.price - b.price)
+    }
+    if (order.value === "name"){
+        return products.value.sort((a, b) => a.name.localeCompare(b.name))
+    }
+       return products.value
+    }
+    
+const changeOrder = (orderTocomponent:string) =>{
+ order.value = orderTocomponent
+} 
+
+
 
     return {
+        order,
+        changeOrder,
        products,
        filterProducts,
     }
