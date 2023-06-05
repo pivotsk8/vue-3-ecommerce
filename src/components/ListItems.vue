@@ -4,22 +4,21 @@ import { userProductsStore } from '@/stores/products';
 import { storeToRefs } from 'pinia';
 
 const produtsStore = userProductsStore()
-const {products} = storeToRefs(produtsStore)
+const { products } = storeToRefs(produtsStore)
 
 
-const key = (id:any) => id++
+const key = (id: any) => id++
 
 
 </script>
 
-<template>  
-  <div v-if="products.length===0" class="d-flex justify-center align-center h-100">
-    <VProgressCircular  indeterminate :size="50"/>
+<template>
+  <div v-if="products.length === 0" class="d-flex justify-center align-center h-100">
+    <VProgressCircular indeterminate :size="50" />
   </div>
-    <VRow v-else>
-        <VCol  v-for="product in products" :key="key(product.id)" cols="4">
-          <ItemCard 
-          :products="product" />
-        </VCol>
-      </VRow>
+  <VRow v-else>
+    <VCol v-for="product in products" :key="key(product.id)" cols="12" sm="6" md="4" lg="3">
+      <ItemCard :products="product" />
+    </VCol>
+  </VRow>
 </template>
