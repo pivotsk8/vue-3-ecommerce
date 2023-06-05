@@ -1,31 +1,47 @@
 # vue-3-ecomemerce
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Enteties
+Este Proyecto se implemento von vue3, vuetify, pinia y typeScript es un ecomerce sencillo pero poderoso a donde se utilizaron nuevas tecnicas
 
 ### Product
 
 - id
 - name
 - image
-- description
 - price
+- categoryId
 
 ### Category
 
+- categoryID
 - name
 - description
 
 ### Shopping Cart
 
-- products: `[{productId: 1, mount: 7 }, {productId: 2, mount: 5}]` 
+- product : PRODUCTS
+- amount
 
 ## Components
 
-### ProductCard
+En la capeta component tienes:
+-Subcapetas:
+
+- Cart:
+- CartCard
+- ShoppingCartItem
+- SummaryCard
+
+- SiderBar:
+- CategoriesOption
+- OrderOption
+
+ItemCard
+ListItems
+SideBar
+TopBar
 
 ## Pages
+
 - / -> Todos los Productos
 - /categoty/5 -> Productos por categoria
 - /cart -> Verel carrito de compras
