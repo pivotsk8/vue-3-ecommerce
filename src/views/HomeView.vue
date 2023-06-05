@@ -1,36 +1,35 @@
 <script setup lang="ts">
 import ListItems from "@/components/ListItems.vue";
 import SideBar from '@/components/SideBar.vue'
-import { onBeforeRouteUpdate} from 'vue-router';
+import { onBeforeRouteUpdate } from 'vue-router';
 import { userProductsStore } from "@/stores/products";
-import {onMounted} from 'vue'
+import { onMounted } from 'vue'
 
 const productStore = userProductsStore()
-const{changeCategory}=productStore
+const { changeCategory } = productStore
 
 onBeforeRouteUpdate((to, from, next) => {
-   const categoryId = Number(to.params.categoryId)
-changeCategory(categoryId)  
-next()
-    })
+  const categoryId = Number(to.params.categoryId)
+  changeCategory(categoryId)
+  next()
+})
 
 onMounted(() => {
-  changeCategory(0) 
-})   
+  changeCategory(0)
+})
 
- 
-    
+
+
 </script>
 
 <template>
   <VRow>
-    <VCol cols="2">
-      <SideBar/>
+    <VCol cols="12" sm="2">
+      <SideBar />
     </VCol>
 
-    <VCol cols="10">
+    <VCol cols="12" sm="10">
       <ListItems />
     </VCol>
   </VRow>
-
 </template>
