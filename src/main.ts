@@ -12,6 +12,9 @@ import * as directives from 'vuetify/directives'
 import { aliases, fa } from 'vuetify/iconsets/fa'
 import { mdi } from 'vuetify/iconsets/mdi'
 
+// Vuetify labs
+import { VSkeletonLoader } from 'vuetify/labs/components'
+
 // Pinia
 import { createPinia } from 'pinia'
 const pinia =createPinia()

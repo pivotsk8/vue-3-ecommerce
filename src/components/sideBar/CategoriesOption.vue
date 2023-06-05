@@ -42,18 +42,19 @@ params: {categoryId}
           Todas
         </VListItemTitle>
       </VListItem>
-    
+
+      <VProgressLinear v-if="categories.length === 0" indeterminate></VProgressLinear>
       <VListItem
       :active="Number($route.params.categoryId) === category.categoryId || $route.name === 'categoty'"
-        v-for=" category in categories"
-        :key="category.categoryId"
-        link
-        @click="selectCategory(category.categoryId)"
+      v-for=" category in categories"
+      :key="category.categoryId"
+      link
+      @click="selectCategory(category.categoryId)"
       >
-        <VListItemTitle>
-           {{ category.name }}
-        </VListItemTitle>
-      </VListItem>
+      <VListItemTitle>
+        {{ category.name }}
+      </VListItemTitle>
+    </VListItem>
 </template>
 
 
